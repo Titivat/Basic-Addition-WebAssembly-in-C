@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>My test page</title>
+    <script src="script.js"></script>
+    <script>
+      document.getElementById("btnResult").addEventListener("click", addNumber);
+
+      function addNumber(){
+        leftInputValue = parseInt( document.getElementById("leftInput").value )
+        rightInputValue = parseInt( document.getElementById("rightInput").value )
+
+          let total = wasmExports.add( leftInputValue , rightInputValue);
+
+          document.getElementById("result").innerHTML = total;
+
+          console.log( total );
+  
+        
+      }
+
+    </script>
+  <body>
+    <p>
+      <input id="leftInput" size="10" type="text"/>
+      <label> + </label>
+      <input id="rightInput" size="10" type="text"/>
+
+      <label id="result"></label>
+    </p>
+
+    <input id="btnResult" style="height:20px;width:225px" type="button" onclick="addNumber()"/>
+    
+  </body>
+
+</html>
